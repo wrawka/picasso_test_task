@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block title %}Picasso Parser{% endblock %} | AL</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.12.0/datatables.min.css"/>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.12.0/datatables.min.js"></script>
+    {% load static %}
+  </head>
+  <body>
+    <main>
+      <div class="container">
+        <h1>{% block header %}Picasso Parser{% endblock %}</h1>
+        <table id="example" class="display Datatable" style="width:100%">
+          <thead>
+            <tr>
+              {% for h in header %}
+                <th>{{ h }}</th>
+              {% endfor %}
+            </tr>
+          </thead>
+          <tbody>
+            {% for r in rows %}
+                {% for domain in r.domains %}
+                  <tr>
+                    <td>{{r.url}}</td>
+                    <td>{{domain.domain}}</td>
+                    <td>{{domain.create_date}}</td>
+                    <td>{{domain.update_date}}</td>
+                    <td>{{domain.country}}</td>
+                    <td>{{domain.isDead}}</td>
+                    <td>{{domain.A}}</td>
+                    <td>{{domain.NS}}</td>
+                    <td>{{domain.CNAME}}</td>
+                    <td>{{domain.MX}}</td>
+                    <td>{{domain.TXT}}</td>
+                  </tr>
+                {% endfor %}
+            {% endfor %}
+          </tbody>
+        </table>
+        <script type="text/javascript" class="init">
+          $(document).ready(function () {
+            $('#example').DataTable();
+          });
+        </script>
+      </div>
+    </main>
+  </body>
+</html>
