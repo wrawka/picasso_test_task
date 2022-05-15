@@ -1,4 +1,8 @@
 __pycache__/
 
-picasso-test-ast.code-workspace
-db.sqlite3
+*.code-workspace
+*.sqlite3
+*.ipynb
+
+.vscode/
+static/
