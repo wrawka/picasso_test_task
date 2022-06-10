@@ -21,4 +21,6 @@ make build && make run
 
 ### Приложение доступно по адресу
 
->[**localhost:8000**](http://localhost:8000)
+>[([http://localhost:8000)](http://0.0.0.0:8000/
+)](http://0.0.0.0:8000/
+)
